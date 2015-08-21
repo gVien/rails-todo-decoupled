@@ -1,0 +1,8 @@
+#todo-list-container {
+  width: 500px;
+  height: 100%;
+  border: 1px solid teal;
+  /*max-width: 1000px;*/
+  margin: 0 auto;
+}
+
