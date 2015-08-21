@@ -9,12 +9,10 @@ Tasks.prototype.listAll = function() {
     url: "http://localhost:3000/tasks",
     dataType: "JSON"
   }).done(function(response) {
-    // console.log(response);
-    for(var i = 0; i < response.length; i++) {
-      var link = '<a href="/tasks/' + response[i].id + '/edit" class="task">' + response[i].task + '</a>';
-      container.append("<div>" + link + "</div>");
-    }
-  })
+    var template = $("#entry-template").html();
+    var compliedTemplate = Handlebars.compile(template);
+    $("#todo-list-container").append(compliedTemplate(response))
+    })
 }
 
 Tasks.prototype.addTask = function() {

@@ -1,18 +1,25 @@
 <html>
-  <head>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<head>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/handlebars.js"></script>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
 
-    <link rel="stylesheet" href="style.css" type="text/css">
-  </head>
-
-  <body>
-    <div id="todo-list-container">
-      <form class="add-task-form" action="/tasks" method="post">
-        <input type="text" placeholder="Add a task" name="task">
-        <input type="submit" value="Add">
-      </form>
-    </div>
+<body>
+  <div id="todo-list-container">
+    <form class="add-task-form" action="/tasks" method="post">
+      <input type="text" placeholder="Add a task" name="task">
+      <input type="submit" value="Add">
+    </form>
+  </div>
+  <script id="entry-template" type="text/x-handlebars-template">
+  {{#each this}}
+  <div class="task">
+  <a href="/tasks/{{id}}/edit">{{task}}</a>
+  </div>
+  {{/each}}
+  </script>
 
   <script type="text/javascript" src="javascripts/application.js"></script>
-  </body>
+</body>
 </html>
